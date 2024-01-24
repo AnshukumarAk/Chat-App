@@ -1,79 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FFFFFF"
-    tools:context=".LoginActivity"
-    android:padding="16dp">
+    android:orientation="vertical"
+    tools:context=".Activity.LoginActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_input_number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="?attr/actionBarSize">
 
         <TextView
+            android:id="@+id/toolbar_title_input_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/enter_your_phone_number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:textColor="#00897b" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_notification_input_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_input_number"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/we_will_send" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_notification_input_number"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/horizontal_line"
+              >
+
+             <com.hbb20.CountryCodePicker
+                 android:id="@+id/country_code_picker"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 app:ccp_showFullName="true"
+                 app:ccp_showPhoneCode="false"/>
+
+
+          </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#96C3BE"
+            android:backgroundTintMode="screen"/>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/welcome"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_country_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:backgroundTint="#00887A"
+                android:drawableStart="@drawable/ic_add_black_24dp"
+                android:gravity="center"
+                android:focusable="false"
+                android:inputType="number"
+                tools:text="91" />
+
+            <EditText
+                android:id="@+id/et_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:backgroundTint="#00887A"
+                android:maxLength="10"
+                android:hint="@string/phone_number"
+                android:inputType="number"
+                tools:ignore="TextFields" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/carrier_sms_charges_may_apply" />
 
 
     </LinearLayout>
 
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/ll_edit"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:background="@drawable/txtborder"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/linearLayout"-->
-<!--        app:layout_constraintVertical_bias="0.277"-->
-<!--        tools:layout_editor_absoluteX="16dp">-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="25dp"-->
-<!--            android:layout_weight="1.2"-->
-<!--            android:src="@drawable/mobile" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/et_mobile"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="48dp"-->
-<!--            android:layout_weight="0.5"-->
-<!--            android:background="@drawable/edittextcircle"-->
-<!--            android:hint="Enter Mobile Number"-->
-<!--            android:inputType="number"-->
-<!--            android:maxLength="10"-->
-<!--            android:textSize="15dp" />-->
-
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
-<!--            android:id="@+id/btnsubmit"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:layout_marginRight="@dimen/_10dp"-->
-<!--            android:layout_weight="1.2"-->
-<!--            android:background="@drawable/submitbutton"-->
-<!--            android:padding="10dp"-->
-<!--            android:src="@drawable/ic_baseline_arrow_forward_24"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="#FFF"-->
-<!--            android:textSize="18dp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--    </LinearLayout>-->
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="14dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/next"
+        android:textStyle="bold"
+        android:backgroundTint="@color/green"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

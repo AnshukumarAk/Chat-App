@@ -2,27 +2,39 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <!-- Camera item -->
     <item
         android:id="@+id/camera"
         android:icon="@drawable/baseline_linked_camera_24"
         app:showAsAction="ifRoom"
-        android:title="Camera"/>
+        android:title="@string/camera"/>
 
+    <!-- Search item with a SearchView -->
     <item
         android:id="@+id/search"
         android:icon="@drawable/baseline_search_24"
-        android:title="SortBy"
+        android:title="@string/sortby"
+        app:iconTint="@color/white"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom"/>
 
-
-
+    <!-- Overflow menu -->
+    <item
+        android:id="@+id/overflow_menu"
+        android:icon="@drawable/ic_menu"
+        app:showAsAction="always"
+        android:title="">
+        <menu>
+            <!-- Settings item -->
             <item
                 android:id="@+id/action_settings"
-                android:title="Settings"/>
+                android:title="@string/settings"/>
 
+            <!-- Help item -->
             <item
                 android:id="@+id/action_help"
-                android:title="Help"/>
+                android:title="@string/help"/>
+        </menu>
+    </item>
 
 </menu>

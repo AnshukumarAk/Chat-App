@@ -2,4 +2,103 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#00AB67</color>
+    <color name="purple_700">#00AB67</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="custom">#DDBC86</color>
+    <color name="addbutton">#084C61</color>
+    <color name="gray">#CCCCCC</color>
+
+    <color name="color_one">#fb7268</color>
+    <color name="color_white">#ededf2</color>
+    <color name="color_two">#E3E0E0</color>
+
+    <color name="R">#FFA726</color>
+    <color name="Python">#66BB6A</color>
+    <color name="CPP">#EF5350</color>
+    <color name="Java">#29B6F6</color>
+
+    <color name="yellow">#FFEB3B</color>
+    <color name="red">#F44336</color>
+    <color name="list2">#f5fcff</color>
+
+
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#0097A7</color>
+    <color name="colorAccent">#009688</color>
+
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#455A64</color>
+    <color name="anshu">#FD867D</color>
+
+
+    <color name="colorGray">#838181</color>
+
+    <color name="search">#034da2</color>
+
+    <color name="newcolor">#CCCCCC</color>
+    <color name="whiteoff">#606060</color>
+
+    <color name="whatsAppColor">#ob6156</color>
+    <color name="status_background">#009688</color>
+    <color name="chat_background">#8bc34a</color>
+    <color name="fb_color">#1877f2</color>
+    <color name="lightGreen">#e5ffcc</color>
+    <color name="settingsIconColor">#0e8374</color>
+    <color name="grayBackground">#bcbcbc</color>
+    <color name="green">#299580</color>
+
+    <color name="statusIndigo">#8B6990</color>
+    <color name="statusLightPink">#FF8A8C</color>
+    <color name="statusGreen">#54C265</color>
+    <color name="statusRed">#FF7B6B</color>
+    <color name="statusCyan">#26C4DC</color>
+    <color name="statusLightBlue">#57C9FF</color>
+    <color name="statusGray">#74676A</color>
+    <color name="statusBlueGrey">#7E90A3</color>
+    <color name="statusBlue">#5696FF</color>
+    <color name="statusDeepPurple">#6E257E</color>
+    <color name="statusLightGreen">#7ACBA5</color>
+    <color name="statusDarkBlueGrey">#243640</color>
+    <color name="statusLightIndigo">#8294CA</color>
+    <color name="statusPink">#A62C71</color>
+    <color name="statusGreenLime">#90A841</color>
+    <color name="statusOrange">#C1A03F</color>
+    <color name="statusDarkPink">#792138</color>
+    <color name="statusBrown">#AE8774</color>
+    <color name="statusYellow">#F0B330</color>
+    <color name="statusLime">#B6B327</color>
+    <color name="statusPurple">#C69FCC</color>
+
+    <array name="statusBackground">
+        <item>@color/statusIndigo</item>
+        <item>@color/statusLightPink</item>
+        <item>@color/statusGreen</item>
+        <item>@color/statusRed</item>
+        <item>@color/statusCyan</item>
+        <item>@color/statusLightBlue</item>
+        <item>@color/statusGray</item>
+        <item>@color/statusBlueGrey</item>
+        <item>@color/statusBlue</item>
+        <item>@color/statusDeepPurple</item>
+        <item>@color/statusLightGreen</item>
+        <item>@color/statusDarkBlueGrey</item>
+        <item>@color/statusLightIndigo</item>
+        <item>@color/statusPink</item>
+        <item>@color/statusGreenLime</item>
+        <item>@color/statusOrange</item>
+        <item>@color/statusDarkPink</item>
+        <item>@color/statusBrown</item>
+        <item>@color/statusYellow</item>
+        <item>@color/statusPurple</item>
+        <item>@color/statusLime</item>
+    </array>
+    <color name="fui_transparent">#00000000</color>
+
 </resources>
