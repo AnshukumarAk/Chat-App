@@ -30,10 +30,18 @@
                 android:id="@+id/action_settings"
                 android:title="@string/settings"/>
 
+            <item
+                android:id="@+id/groupChat"
+                android:title="@string/group_chat"/>
+
             <!-- Help item -->
             <item
                 android:id="@+id/action_help"
                 android:title="@string/help"/>
+
+            <item
+                android:id="@+id/Logout"
+                android:title="@string/logout"/>
         </menu>
     </item>
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "453923487101",
+    "project_id": "chat-app-4ff71",
+    "storage_bucket": "chat-app-4ff71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453923487101:android:79e3b7bbb46ecb1f45e014",
+        "android_client_info": {
+          "package_name": "com.anshu.chatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcZ0jj7Ndt-OOCh_VI8bHIlkEpsq2akBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

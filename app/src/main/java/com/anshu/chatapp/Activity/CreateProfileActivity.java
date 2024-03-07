@@ -58,6 +58,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                     sharedPrefHelper.setString("UserPhoto",base64);
                     Intent intent=new Intent(CreateProfileActivity.this,MainActivity.class);
                     startActivity(intent);
+                    sharedPrefHelper.setString("login","yes");
                 }
             }
         });

@@ -76,13 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_videocam_black_24dp"/>
+            android:src="@drawable/ic_videoicon_24dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_information" />
+            android:src="@drawable/info_icon" />
 
     </LinearLayout>
 

@@ -1,12 +1,16 @@
 package com.anshu.chatapp.Fragments;
 
 
+import static androidx.camera.core.CameraX.getContext;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -41,6 +45,7 @@ import com.anshu.chatapp.R;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class CameraTabFragment extends Fragment {
 
@@ -96,6 +101,7 @@ public class CameraTabFragment extends Fragment {
             }
         });
 
+
         return rootView;
     }
 
@@ -112,10 +118,12 @@ public class CameraTabFragment extends Fragment {
     }
 
     private boolean allPermissionsGranted() {
+        if (Build.VERSION.SDK_INT <= 32) {
         for (String permissions : REQUIRED_PERMISSIONS) {
             if (ContextCompat.checkSelfPermission(getContext(), permissions) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
+        }
         }
         return true;
     }
@@ -145,15 +153,15 @@ public class CameraTabFragment extends Fragment {
         mCapture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                File file = new File(Environment.getExternalStorageDirectory() + "/" + System.currentTimeMillis() + ".jpg");
-
+                SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+                @SuppressLint("RestrictedApi") File file = new File(getContext().getExternalCacheDir() + File.separator + System.currentTimeMillis() + ".png");
                 mImageCapture.setFlashMode(flashMode);
                 mImageCapture.takePicture(file, new ImageCapture.OnImageSavedListener() {
                     @Override
                     public void onImageSaved(@NonNull File file) {
                         Intent intent = new Intent(getContext(), EditStatusActivity.class);
                         intent.putExtra("from_activity", getActivity().getClass().getSimpleName());
-                        intent.putExtra("file", file.getAbsolutePath());
+                        intent.putExtra("Image", file.getAbsolutePath());
                         startActivity(intent);
                     }
 
@@ -257,4 +265,6 @@ public class CameraTabFragment extends Fragment {
         }
         return images;
     }
+
+
 }

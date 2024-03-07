@@ -75,4 +75,21 @@
     <string name="english_device_s_language">English(device\'s language)</string>
     <string name="help_center_contact_us_privacy_policy">Help center,contact us,privacy policy</string>
     <string name="invite_a_friend">Invite a friend</string>
+    <string name="app_version">App Version: 2.1</string>
+    <string name="are_you_sure_exit_this_application">Do you want to exit from the application?</string>
+    <string name="no">No</string>
+    <string name="welcome_to_my_chatapp">Welcome To My Chatapp</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="google">Google</string>
+    <string name="facebook">FaceBook</string>
+    <string name="sign_up_with_phone_number">Sign Up With Phone Number</string>
+    <string name="sign_in">Sign In</string>
+    <string name="click_for_sign_up">Click For Sign Up</string>
+    <string name="click_for_sign_in">Click For Sign In</string>
+    <string name="logout">Logout</string>
+    <string name="default_web_client_id">419855168939-lukfecnfnqjfqj0narhv6r4rn7gf3rd6.apps.googleusercontent.com</string>
+    <string name="group_chat">Group chat</string>
 </resources>

@@ -92,7 +92,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_visibility_black_24dp" />
+        android:src="@drawable/ic_eye_24dp" />
 
     <TextView
         android:id="@+id/tv_seen_count"

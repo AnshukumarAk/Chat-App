@@ -7,9 +7,9 @@
     android:background="@android:color/black"
     tools:context=".Activity.EditStatusActivity">
 
-    <ImageView
+    <com.jsibbold.zoomage.ZoomageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/preview_image" />
 
     <androidx.appcompat.widget.Toolbar

@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.ProfileActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,6 +26,7 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ProfileImage"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/profile_logo"
@@ -39,6 +42,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/TvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/anshu"
@@ -46,6 +50,7 @@
                 android:textSize="20sp"/>
 
             <TextView
+                android:id="@+id/TvMobileNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mobile_number"
@@ -414,7 +419,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 app:tint="@color/gray"
-                android:src="@drawable/baseline_person_2_24"/>
+                android:src="@drawable/image"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

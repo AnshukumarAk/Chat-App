@@ -20,18 +20,25 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.anshu.chatapp.Adepter.UserAdepter;
+import com.anshu.chatapp.Models.UserModel;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.databinding.ActivityMainBinding;
 import com.anshu.chatapp.databinding.FragmentChatsBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class fragment_chats extends Fragment{
 
     FragmentChatsBinding binding;
-    ArrayList<String> list;
+    ArrayList<UserModel> list;
     private MenuItem cameraItem;
     private SearchView searchView;
+
+    FirebaseDatabase firebaseDatabase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,96 +52,62 @@ public class fragment_chats extends Fragment{
 
         binding = FragmentChatsBinding.inflate(getLayoutInflater());
         list = new ArrayList<>();
-//        setHasOptionsMenu(true);
-        list.add("Anush Kumar");
-        list.add("Deepak Kumar");
-        list.add("Ram Kumar");
-        list.add("Shyam Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
-        list.add("Mohan Kumar");
+        firebaseDatabase=FirebaseDatabase.getInstance();
+
         UserAdepter userAdepter = new UserAdepter(requireContext(),list);
         binding.rvChatsProfile.setHasFixedSize(true);
         binding.rvChatsProfile.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.rvChatsProfile.setAdapter(userAdepter);
-        userAdepter.notifyDataSetChanged();
+
+
+        firebaseDatabase.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    UserModel users=dataSnapshot.getValue(UserModel.class);
+//                    users.getUserId(dataSnapshot.getKey());
+                    users.setUserId(dataSnapshot.getKey());
+                    list.add(users);
+
+                }
+                userAdepter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+//        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for
+//                (DataSnapshot dataSnapshot: snapshot.getChildren()){
+//                    Users users dataSnapshot.getValue(Users.class);
+//                    users.getUserId(dataSnapshot.getKey());
+//                    list.add(users);
+//                }
+//                adapter.notifyDataSetChanged();
+//            }
+//            @Override
+//            public void onCancelled(@NonNull Database Error error) {
+//            }
+//        });
+
+
+
+
+
+
+
+
 
         return binding.getRoot();
     }

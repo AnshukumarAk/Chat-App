@@ -1,6 +1,8 @@
 package com.anshu.chatapp.Adepter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +11,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.anshu.chatapp.Activity.EditStatusActivity;
 import com.anshu.chatapp.R;
+import com.anshu.chatapp.Utills.SharedPrefHelper;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -19,6 +23,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
 
     private ArrayList<String> images;
     private Context mContext;
+    private SharedPrefHelper sharedPrefHelper;
 
     public GalleryAdapter(Context context, ArrayList<String> imageFacers) {
         this.mContext = context;
@@ -33,11 +38,25 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Glide.with(mContext)
                 .load(images.get(position))
                 .apply(new RequestOptions().centerCrop())
                 .into(holder.image);
+
+        SharedPrefHelper sharedPrefHelper=new SharedPrefHelper(mContext);
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext, EditStatusActivity.class);
+                intent.putExtra("Image",images.get(position));
+//                sharedPrefHelper.setString("Image",images.get(position));
+                mContext.startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
