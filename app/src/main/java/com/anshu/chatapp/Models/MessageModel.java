@@ -1,7 +1,7 @@
 package com.anshu.chatapp.Models;
 
 public class MessageModel {
-    String uId,message;
+    String uId,message,messageId;
     Long timestamp;
 
     public MessageModel(String uId, String message, Long timestamp) {
@@ -40,5 +40,13 @@ public class MessageModel {
 
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 }

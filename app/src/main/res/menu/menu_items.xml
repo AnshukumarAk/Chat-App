@@ -4,14 +4,14 @@
 
     <!-- Camera item -->
     <item
-        android:id="@+id/camera"
+        android:id="@+id/action_camera"
         android:icon="@drawable/baseline_linked_camera_24"
         app:showAsAction="ifRoom"
         android:title="@string/camera"/>
 
     <!-- Search item with a SearchView -->
     <item
-        android:id="@+id/search"
+        android:id="@+id/action_search"
         android:icon="@drawable/baseline_search_24"
         android:title="@string/sortby"
         app:iconTint="@color/white"
@@ -25,22 +25,23 @@
         app:showAsAction="always"
         android:title="">
         <menu>
-            <!-- Settings item -->
+
             <item
                 android:id="@+id/action_settings"
-                android:title="@string/settings"/>
+                android:title="@string/settings"
+
+                />
 
             <item
-                android:id="@+id/groupChat"
+                android:id="@+id/action_groupchat"
                 android:title="@string/group_chat"/>
 
-            <!-- Help item -->
             <item
                 android:id="@+id/action_help"
                 android:title="@string/help"/>
 
             <item
-                android:id="@+id/Logout"
+                android:id="@+id/action_logout"
                 android:title="@string/logout"/>
         </menu>
     </item>

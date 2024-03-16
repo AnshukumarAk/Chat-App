@@ -2,6 +2,7 @@ package com.anshu.chatapp.Activity;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,14 +23,26 @@ import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.Toast;
 
+import com.anshu.chatapp.Models.UserModel;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.Utills.SharedPrefHelper;
 import com.anshu.chatapp.databinding.ActivityCreateProfileBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class CreateProfileActivity extends AppCompatActivity {
@@ -43,22 +56,64 @@ public class CreateProfileActivity extends AppCompatActivity {
     String base64="";
     SharedPrefHelper sharedPrefHelper;
 
+    FirebaseStorage firebaseStorage;
+    FirebaseAuth auth;
+    FirebaseDatabase firebaseDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         sharedPrefHelper=new SharedPrefHelper(this);
+
+        auth=FirebaseAuth.getInstance();
+        firebaseStorage=FirebaseStorage.getInstance();
+        firebaseDatabase=FirebaseDatabase.getInstance();
+
+
+        firebaseDatabase.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                UserModel userModel=snapshot.getValue(UserModel.class);
+                                Picasso.get().load(userModel.getProfilePic()).
+                                        placeholder(R.drawable.image).into(binding.imgAvatarCreate);
+
+                                binding.etAbout.setText(userModel.getStatus());
+                                binding.etUserName.setText(userModel.getUserName());
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+
+
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (CheckCondition()){
-                    String UserName=binding.etCreateProfileUsername.getText().toString().trim();
-                    sharedPrefHelper.setString("UserName",UserName);
+                    String username=binding.etUserName.getText().toString().trim();
+                    String status=binding.etAbout.getText().toString().trim();
+
+                    HashMap<String ,Object> hashMap=new HashMap<>();
+                    hashMap.put("userName",username);
+                    hashMap.put("status",status);
+
+                    firebaseDatabase.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                                    .updateChildren(hashMap);
+
+                    sharedPrefHelper.setString("UserName",username);
+                    sharedPrefHelper.setString("UserAbout",status);
                     sharedPrefHelper.setString("UserPhoto",base64);
                     Intent intent=new Intent(CreateProfileActivity.this,MainActivity.class);
                     startActivity(intent);
-                    sharedPrefHelper.setString("login","yes");
+//                    sharedPrefHelper.setString("login","yes");
                 }
             }
         });
@@ -74,12 +129,22 @@ public class CreateProfileActivity extends AppCompatActivity {
     }
 
     private boolean CheckCondition() {
-       if (binding.etCreateProfileUsername.getText().toString().trim().equals("")){
-           binding.etCreateProfileUsername.setError("Field Required");
-           binding.etCreateProfileUsername.requestFocus();
+       if (binding.etUserName.getText().toString().trim().equals("")){
+           binding.etUserName.setError("Field Required");
+           binding.etUserName.requestFocus();
            return false;
        }
 
+       if (base64.equals("")){
+           Toast.makeText(context, "Please Upload Picture", Toast.LENGTH_SHORT).show();
+           return false;
+       }
+
+        if (binding.etAbout.getText().toString().trim().equals("")){
+            binding.etAbout.setError("Field Required");
+            binding.etAbout.requestFocus();
+            return false;
+        }
 
         return true;
     }
@@ -152,6 +217,7 @@ public class CreateProfileActivity extends AppCompatActivity {
                         byte[] bytes = stream.toByteArray();
                         base64 = encodeTobase64(photo);
                         binding.imgAvatarCreate.setImageBitmap(photo);
+
                     }
                 }
             }
@@ -171,6 +237,32 @@ public class CreateProfileActivity extends AppCompatActivity {
                             base64 = encodeTobase64(selectedImage);
                             // update the preview image in the layout
                             binding.imgAvatarCreate.setImageURI(selectedImageUri);
+
+
+                            FirebaseStorage storage = FirebaseStorage.getInstance();
+                            StorageReference storageRef = storage.getReference().child("profile_pictures").
+                                    child(FirebaseAuth.getInstance().getUid());
+
+                            storageRef.putFile(selectedImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+
+                                        firebaseDatabase.getReference().child("Users")
+                                                .child(FirebaseAuth.getInstance().getUid())
+                                                .child("profilePic")
+                                                .setValue(uri.toString());
+
+                                        Toast.makeText(context, "Profile Update Successfully..", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                                }
+                            });
+
                         }
                     }
                 }

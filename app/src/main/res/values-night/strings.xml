@@ -89,4 +89,7 @@
     <string name="click_for_sign_in">Click For Sign In</string>
     <string name="logout">Logout</string>
     <string name="group_chat">Group chat</string>
+    <string name="last_message">last message</string>
+    <string name="na">NA</string>
+    <string name="msg_token_fmt">Hello bOss\n</string>
 </resources>

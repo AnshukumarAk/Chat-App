@@ -92,4 +92,7 @@
     <string name="logout">Logout</string>
     <string name="default_web_client_id">419855168939-lukfecnfnqjfqj0narhv6r4rn7gf3rd6.apps.googleusercontent.com</string>
     <string name="group_chat">Group chat</string>
+    <string name="last_message">last message</string>
+    <string name="na">NA</string>
+    <string name="msg_token_fmt">Hello bOss</string>
 </resources>

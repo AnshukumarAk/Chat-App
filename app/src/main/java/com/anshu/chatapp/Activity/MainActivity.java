@@ -43,7 +43,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     Context context = this;
@@ -61,10 +61,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private SharedPrefHelper sharedPrefHelper;
     private MenuItem cameraItem;
     private static final int CAMERA_REQUEST = 1000;
-    String base64="";
+    String base64 = "";
     private static final int SELECT_PICTURE = 100;
     String data = "";
-    String CheckAction="";
+    String CheckAction = "";
     int position;
 
     @Override
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-               int  position = tab.getPosition();
+                int position = tab.getPosition();
                 switch (position) {
                     case 0:
                         mFabTop.hide();
@@ -192,63 +192,34 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        MenuItem menuItem=menu.findItem(R.id.search);
-//        SearchView searchView=(SearchView) menuItem.getActionView();
+        getMenuInflater().inflate(R.menu.menu_items, menu);
         cameraItem = menu.findItem(R.id.camera);
-//        searchView.setQueryHint("Search file name");
-//
-//        searchView.setOnQueryTextListener(this);
-
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        String input=newText.toLowerCase();
-        if (input.equals("") | (input==null)){
-
-        }else {
-            if (cameraItem != null) {
-                cameraItem.setVisible(false);
-            }
-        }
-        return true;
-    }
-    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.search:
-                Toast.makeText(context, "Search Click ", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.camera:
-                Toast.makeText(context, "Camera Click ", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_settings:
-                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.groupChat:
-                Intent groupChat=new Intent(MainActivity.this,GroupChatActivity.class);
-                startActivity(groupChat);
-                break;
-
-            case R.id.Logout:
-                FirebaseAuth.getInstance().signOut();
-                Intent logout=new Intent(MainActivity.this,SignInActivity.class);
-                startActivity(logout);
-                finish();
-                break;
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_search) {
+            Toast.makeText(context, "Search Click ", Toast.LENGTH_SHORT).show();
+        } else if (itemId == R.id.camera) {
+            Toast.makeText(context, "Camera Click ", Toast.LENGTH_SHORT).show();
+        } else if (itemId == R.id.action_groupchat) {
+            Intent groupChat = new Intent(MainActivity.this, GroupChatActivity.class);
+            startActivity(groupChat);
+        } else if (itemId == R.id.action_help) {
+            // Handle help action
+        } else if (itemId == R.id.action_logout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent logout=new Intent(MainActivity.this,SignInActivity.class);
+            startActivity(logout);
+            finish();
+        } else if (itemId==R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+            
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -261,7 +232,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         mToolbar = findViewById(R.id.toolbar);
         mAppBarLayout = findViewById(R.id.appbar_layout);
     }
-
     public void showImagePickerDialog() {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = layoutInflater.inflate(R.layout.choose_option, null);

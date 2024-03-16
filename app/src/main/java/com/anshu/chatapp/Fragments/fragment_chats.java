@@ -22,8 +22,10 @@ import android.widget.Toast;
 import com.anshu.chatapp.Adepter.UserAdepter;
 import com.anshu.chatapp.Models.UserModel;
 import com.anshu.chatapp.R;
+import com.anshu.chatapp.Utills.SharedPrefHelper;
 import com.anshu.chatapp.databinding.ActivityMainBinding;
 import com.anshu.chatapp.databinding.FragmentChatsBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,6 +41,7 @@ public class fragment_chats extends Fragment{
     private SearchView searchView;
 
     FirebaseDatabase firebaseDatabase;
+    SharedPrefHelper sharedPrefHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,8 @@ public class fragment_chats extends Fragment{
         binding = FragmentChatsBinding.inflate(getLayoutInflater());
         list = new ArrayList<>();
         firebaseDatabase=FirebaseDatabase.getInstance();
-
+// Initialize SharedPrefHelper
+        sharedPrefHelper = new SharedPrefHelper(getContext());
         UserAdepter userAdepter = new UserAdepter(requireContext(),list);
         binding.rvChatsProfile.setHasFixedSize(true);
         binding.rvChatsProfile.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -69,8 +73,13 @@ public class fragment_chats extends Fragment{
                     UserModel users=dataSnapshot.getValue(UserModel.class);
 //                    users.getUserId(dataSnapshot.getKey());
                     users.setUserId(dataSnapshot.getKey());
-                    list.add(users);
+                    if (!users.getUserId().equals(FirebaseAuth.getInstance().getUid())){
+                        list.add(users);
+                    }
 
+                    if (users.getUserId().equals(FirebaseAuth.getInstance().getUid())){
+                        sharedPrefHelper.setString("UserName",users.getUserName());
+                    }
                 }
                 userAdepter.notifyDataSetChanged();
 
@@ -81,33 +90,6 @@ public class fragment_chats extends Fragment{
 
             }
         });
-
-
-
-
-//        database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for
-//                (DataSnapshot dataSnapshot: snapshot.getChildren()){
-//                    Users users dataSnapshot.getValue(Users.class);
-//                    users.getUserId(dataSnapshot.getKey());
-//                    list.add(users);
-//                }
-//                adapter.notifyDataSetChanged();
-//            }
-//            @Override
-//            public void onCancelled(@NonNull Database Error error) {
-//            }
-//        });
-
-
-
-
-
-
-
-
 
         return binding.getRoot();
     }

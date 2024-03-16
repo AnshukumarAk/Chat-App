@@ -14,16 +14,25 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.anshu.chatapp.Models.UserModel;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.Utills.SharedPrefHelper;
 import com.anshu.chatapp.databinding.ActivityProfileBinding;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -32,8 +41,12 @@ import java.util.ArrayList;
 public class ProfileActivity extends AppCompatActivity {
 
     ActivityProfileBinding binding;
-    String UserName="",UserImage="",UserMobileNumber="";
+    String UserName="",UserImage="",UserMobileNumber="",UserAbout="";
     SharedPrefHelper sharedPrefHelper;
+
+    FirebaseStorage firebaseStorage;
+    FirebaseAuth auth;
+    FirebaseDatabase firebaseDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,22 +58,50 @@ public class ProfileActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Enable the back button
 
         AllIniClizeID();
-        getValueSharePrefance();
-        setUserData();
+        getValus();
 
 
 
+
+        binding.profilePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ProfileActivity.this,CreateProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void getValus() {
+
+        firebaseDatabase.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        UserModel userModel=snapshot.getValue(UserModel.class);
+                        Picasso.get().load(userModel.getProfilePic()).
+                                placeholder(R.drawable.image).into(binding.ProfileImage);
+
+                        binding.tvAbout.setText(userModel.getStatus());
+                        binding.TvUserName.setText(userModel.getUserName());
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     private void AllIniClizeID() {
         sharedPrefHelper=new SharedPrefHelper(this);
+        auth=FirebaseAuth.getInstance();
+        firebaseStorage=FirebaseStorage.getInstance();
+        firebaseDatabase=FirebaseDatabase.getInstance();
     }
 
-    private void getValueSharePrefance() {
-        UserName=sharedPrefHelper.getString("UserName","");
-        UserImage=sharedPrefHelper.getString("UserPhoto","");
-        UserMobileNumber=sharedPrefHelper.getString("FullNumber","");
-    }
 
 
     @SuppressLint("NonConstantResourceId")
@@ -72,27 +113,5 @@ public class ProfileActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    @SuppressLint("SetTextI18n")
-    private void setUserData() {
-     binding.TvUserName.setText(UserName);
-     binding.TvMobileNumber.setText("+ "+ UserMobileNumber);
 
-        if (UserImage != null && UserImage.length() > 200) {
-            byte[] decodedString = Base64.decode(UserImage, Base64.NO_WRAP);
-            InputStream inputStream = new ByteArrayInputStream(decodedString);
-            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-            binding.ProfileImage.setImageBitmap(bitmap);
-
-        }else {
-            try {
-                Glide.with(ProfileActivity.this)
-                        .load(UserImage)
-                        .apply(new RequestOptions().centerCrop())
-                        .into(binding.ProfileImage);
-            } catch (Exception e) {
-                Log.d("Exception", "" + e);
-            }
-        }
-
-    }
 }

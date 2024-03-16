@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -69,7 +70,7 @@ public class ChatDetailActivity extends AppCompatActivity {
 
       final ArrayList<MessageModel>messageModels=new ArrayList<>();
 
-      final ChatAdapter chatAdapter=new ChatAdapter(messageModels,this);
+      final ChatAdapter chatAdapter=new ChatAdapter(messageModels,this,receiveId);
       binding.chatRecyclearView.setAdapter(chatAdapter);
 
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
@@ -87,6 +88,8 @@ public class ChatDetailActivity extends AppCompatActivity {
                                       messageModels.clear();
                                       for (DataSnapshot snapshot1 : snapshot.getChildren()){
                                           MessageModel model=snapshot1.getValue(MessageModel.class);
+                                           model.setMessageId(snapshot1.getKey());
+
                                           messageModels.add(model);
                                       }
 
@@ -165,6 +168,9 @@ public class ChatDetailActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
+        startActivity(intent);
+        finishAffinity();
     }
 
     private void showSendButton() {

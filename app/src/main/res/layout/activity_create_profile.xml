@@ -42,38 +42,61 @@
             android:gravity="center"
             android:text="@string/please_provide_your_name_and_an_optional_profile_photourl" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/img_avatar_create"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/ic_person_black_24dp"
-            app:civ_circle_background_color="#27343C" />
+       <de.hdodenhof.circleimageview.CircleImageView
+           android:id="@+id/img_avatar_create"
+           android:layout_width="120dp"
+           android:layout_height="120dp"
+           android:src="@drawable/profile"
+           android:layout_marginTop="14dp"
+           android:layout_gravity="center"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_create_profile_username"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:maxLength="30"
-                android:hint="@string/input_username"
-                android:inputType="text" />
 
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="4dp"
-                android:src="@drawable/ic_insert_emoticon_dark_24dp" />
+                android:textStyle="bold"
+                android:text="UserName :"/>
+
+            <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:hint=""
+                android:inputType="text" />
+
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="About :"/>
+
+            <EditText
+                android:id="@+id/etAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="text" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

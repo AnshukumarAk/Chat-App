@@ -36,7 +36,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="20dp"
-                android:src="@drawable/profile_logo"
+                android:src="@drawable/image"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="1dp"
                 app:layout_constraintBottom_toBottomOf="@+id/backArrow"
