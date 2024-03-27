@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:id="@+id/test_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Fragments.fragment_status">
 
     <RelativeLayout
         android:id="@+id/layout_self_status"

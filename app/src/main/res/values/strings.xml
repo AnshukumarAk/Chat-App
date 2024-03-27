@@ -95,4 +95,5 @@
     <string name="last_message">last message</string>
     <string name="na">NA</string>
     <string name="msg_token_fmt">Hello bOss</string>
+    <string name="add_friend">Add Friend</string>
 </resources>

@@ -31,9 +31,9 @@ public class FirstTimeOpenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(FirstTimeOpenActivity.this,LoginActivity.class);
+                Intent intent=new Intent(FirstTimeOpenActivity.this,SignInActivity.class);
                 startActivity(intent);
-//                sharedPrefHelper.setString("agree_and_continue","yes");
+                sharedPrefHelper.setString("agree_and_continue","yes");
 
             }
         });

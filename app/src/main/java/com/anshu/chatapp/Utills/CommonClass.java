@@ -143,5 +143,18 @@ public class CommonClass {
         return LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
     }
 
+    public static String formatTime(String timestamp) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            // Convert timestamp to LocalDateTime
+            LocalDateTime dateTime = parseTimestamp(timestamp);
+
+            // Format the time part
+            String timeStr = dateTime.format(DateTimeFormatter.ofPattern("hh:mm a"));
+
+            return timeStr;
+        }
+
+        return timestamp;
+    }
 
 }

@@ -14,9 +14,8 @@
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
-    <!--for 13 version-->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" /> <!-- for 13 version -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -29,6 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApp"
         tools:targetApi="31">
+        <activity
+            android:name=".Activity.AddFriendsActivity"
+            android:exported="false" />
         <activity
             android:name=".Activity.ShowProfileImage"
             android:exported="false" />
@@ -91,7 +93,11 @@
             android:exported="false" />
         <activity
             android:name=".Activity.MainActivity"
-            android:exported="true" />
+            android:exported="true" /> <!-- Declare the CameraTabFragment activity -->
+        <activity android:name=".Fragments.CameraTabFragment">
+
+            <!-- You can add additional attributes here if needed -->
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -110,7 +116,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>

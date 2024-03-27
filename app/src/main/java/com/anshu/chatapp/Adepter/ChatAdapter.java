@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.anshu.chatapp.Models.MessageModel;
 import com.anshu.chatapp.R;
+import com.anshu.chatapp.Utills.CommonClass;
 import com.google.android.gms.dynamic.IFragmentWrapper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -72,8 +73,22 @@ public class ChatAdapter extends RecyclerView.Adapter{
 
         if (holder.getClass()==SenderviewHolder.class){
             ((SenderviewHolder)holder).senderMessage.setText(messageModel.getMessage());
+            try{
+                String formattedTime = CommonClass.formatTime(String.valueOf(messageModel.getTimestamp()));
+                ((SenderviewHolder)holder).senderTime.setText(formattedTime);
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }else {
             ((ReciverviewHolder)holder).receiverMessage.setText(messageModel.getMessage());
+            try{
+                String formattedTime = CommonClass.formatTime(String.valueOf(messageModel.getTimestamp()));
+                ((ReciverviewHolder)holder).receiverTime.setText(formattedTime);
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {

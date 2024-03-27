@@ -9,10 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.anshu.chatapp.Activity.CameraActivity;
 import com.anshu.chatapp.R;
+import com.anshu.chatapp.databinding.FragmentChatsBinding;
+import com.anshu.chatapp.databinding.FragmentStatusBinding;
 
 public class fragment_status extends Fragment {
 
+      FragmentStatusBinding binding;
 
 
     @Override
@@ -25,8 +29,19 @@ public class fragment_status extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status, container, false);
+        binding = FragmentStatusBinding.inflate(getLayoutInflater());
+
+        binding.layoutSelfStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(getContext(), CameraActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
 
+        return binding.getRoot();
     }
 }

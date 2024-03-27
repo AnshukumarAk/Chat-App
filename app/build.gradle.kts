@@ -85,9 +85,12 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-storage:20.3.0")
 
+    /////
+
+
 
     //// picaso
     implementation ("com.squareup.picasso:picasso:2.8")
-
+    implementation ("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
 
 }

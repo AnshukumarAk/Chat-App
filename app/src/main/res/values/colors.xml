@@ -101,5 +101,7 @@
     </array>
     <color name="fui_transparent">#00000000</color>
     <color name="buttoncolor">#FF000000</color>
+    <color name="tabcolor">#6274E2</color>
+
 
 </resources>

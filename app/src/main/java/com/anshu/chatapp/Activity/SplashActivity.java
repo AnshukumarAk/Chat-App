@@ -74,6 +74,7 @@ public class SplashActivity extends AppCompatActivity {
                         @SuppressLint({"StringFormatInvalid", "LocalSuppress"})
                         String msg = getString(R.string.msg_token_fmt, token);
                         Log.d(TAG, msg);
+                        Log.d(TAG, "Token hai Bhai"+token);
 //                        Toast.makeText(SplashActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -175,15 +176,19 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (sharedPrefHelper.getString("login","").equals("yes")){
-                        Intent intent = new Intent(SplashActivity.this, SignInActivity.class);
+                if (!sharedPrefHelper.getString("agree_and_continue","").equals("yes")){
+                        Intent intent = new Intent(SplashActivity.this, FirstTimeOpenActivity.class);
                         startActivity(intent);
                         finish();
 
-                    }else {
+                    }else if (sharedPrefHelper.getString("login","").equals("yes")){
                          Intent intent = new Intent(SplashActivity.this, SignInActivity.class);
                         startActivity(intent);
                         finish();
+                }else {
+                    Intent intent = new Intent(SplashActivity.this, SignInActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         }, SPLASH_DISPLAY_LENGHT);

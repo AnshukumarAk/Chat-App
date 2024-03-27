@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_near"
+        android:icon="@drawable/ic_chat_black_24dp"
+        android:title="Chats"
+        app:cnb_iconColor="#2196F3"/>
+
+    <item
+        android:id="@+id/nav_new_chat"
+        android:icon="@drawable/ic_videoicon_24dp"
+        android:title="Status"
+        app:cnb_iconColor="#F44336"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/baseline_call_24"
+        android:title="Calls"
+        app:cnb_iconColor="#4CAF50"/>
+
+
+</menu>
