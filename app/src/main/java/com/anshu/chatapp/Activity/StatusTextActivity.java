@@ -9,10 +9,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
+import com.anshu.chatapp.Models.MessageModel;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.databinding.ActivityStatusTextBinding;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Date;
 import java.util.Random;
 
 public class StatusTextActivity extends AppCompatActivity {
@@ -21,12 +27,17 @@ public class StatusTextActivity extends AppCompatActivity {
     private int p = 0;
     private int t = 0;
     private Context context=this;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityStatusTextBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        AllIniClizeID();
+
 
        CheckEditValue();
         binding.etTextStatus.requestFocus();
@@ -38,6 +49,41 @@ public class StatusTextActivity extends AppCompatActivity {
                openEmojiPicker();
            }
        });
+
+      String userId=FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+       binding.fabStatusText.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               String message = binding.etTextStatus.getText().toString().trim();
+               if (!message.equals("")) {
+                   final MessageModel model = new MessageModel(userId, message);
+                   model.setTimestamp(new Date().getTime());
+                   binding.etTextStatus.setText("");
+                   firebaseDatabase.getReference().child("userStatus")
+//                           .push()
+                           .child(userId)
+                           .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                               @Override
+                               public void onSuccess(Void unused) {
+                                   Toast.makeText(context, "Status Uploaded", Toast.LENGTH_SHORT).show();
+
+                               }
+                           });
+
+               }else {
+                   Toast.makeText(context, "Type Something...", Toast.LENGTH_SHORT).show();
+
+               }
+
+           }
+       });
+
+    }
+
+    private void AllIniClizeID() {
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        auth= FirebaseAuth.getInstance();
     }
 
     private void ChangeTextStyle() {

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.anshu.chatapp.Activity.CameraActivity;
+import com.anshu.chatapp.Activity.ShowMyStatusActivity;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.databinding.FragmentChatsBinding;
 import com.anshu.chatapp.databinding.FragmentStatusBinding;
@@ -35,7 +36,7 @@ public class fragment_status extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(getContext(), CameraActivity.class);
+                Intent intent=new Intent(getContext(), ShowMyStatusActivity.class);
                 startActivity(intent);
 
             }

@@ -49,4 +49,6 @@ public class MessageModel {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
+
+
 }

@@ -17,6 +17,7 @@ import com.anshu.chatapp.Models.MessageModel;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.databinding.ActivityChatDetailBinding;
 import com.anshu.chatapp.databinding.ActivityLoginBinding;
+import com.anshu.chatapp.services.MyFirebaseMessagingService;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -111,7 +112,6 @@ public class ChatDetailActivity extends AppCompatActivity {
              final MessageModel model = new MessageModel(senderId, message);
              model.setTimestamp(new Date().getTime());
              binding.etMessageChat.setText("");
-
              firebaseDatabase.getReference().child("chats").
                      child(senderRoom)
                      .push()
@@ -136,6 +136,9 @@ public class ChatDetailActivity extends AppCompatActivity {
                }
 
          }
+            //////// Send Notification
+
+
      });
 
 
