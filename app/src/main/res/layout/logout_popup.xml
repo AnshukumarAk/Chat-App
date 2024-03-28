@@ -37,6 +37,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="No"
+            android:fontFamily="@font/spartan_bold"
             android:backgroundTint="@color/black"/>
 
         <Button
@@ -47,6 +48,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Yes"
+            android:fontFamily="@font/spartan_bold"
             android:backgroundTint="@color/black"/>
 
     </LinearLayout>

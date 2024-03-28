@@ -8,10 +8,7 @@
     android:layout_marginStart="5dp"
     android:layout_marginEnd="7dp"
     android:background="@drawable/bg_reciever"
-    android:maxWidth="310dp"
-    android:maxHeight="400dp"
-    >
-
+    android:maxWidth="250dp" >
 
     <TextView
         android:id="@+id/recieverText"
@@ -21,13 +18,10 @@
         app:layout_constraintBottom_toTopOf="@id/recieverTime"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:maxWidth="270dp"
-        android:layout_marginLeft="10dp"
-        android:minWidth="50dp"
+        android:padding="9dp"
+        android:fontFamily="@font/spartan_bold"
         android:inputType="textLongMessage|textMultiLine"
-        android:layout_marginTop="8dp"
-        />
+        android:layout_marginTop="8dp"/>
 
     <TextView
         android:id="@+id/recieverTime"
@@ -36,7 +30,9 @@
         android:layout_marginRight="4dp"
         android:layout_marginBottom="3dp"
         android:text="12:00 pm"
-        android:textSize="10dp"
+        android:textSize="9dp"
+        android:padding="9dp"
+        android:fontFamily="@font/spartan_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

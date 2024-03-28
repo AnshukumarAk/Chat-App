@@ -39,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:fontFamily="@font/spartan_bold"
                 android:text="@string/anshu_kumar_call"/>
             <TextView
                 android:id="@+id/tvOnlineCheckeUser"
@@ -47,6 +48,7 @@
                 android:textSize="10sp"
                 android:textColor="#0000FF"
                 android:text="@string/online"
+                android:fontFamily="@font/spartan_bold"
                 tools:ignore="SmallSp" />
         </LinearLayout>
         <LinearLayout

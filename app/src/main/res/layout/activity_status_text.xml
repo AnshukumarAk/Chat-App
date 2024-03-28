@@ -14,6 +14,7 @@
         android:background="@null"
         android:gravity="center"
         android:hint="@string/type_a_status"
+        android:fontFamily="@font/spartan_bold"
         android:textColor="@color/black"
         android:textSize="40sp" />
 

@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/verify_6285814993643"
+            android:fontFamily="@font/spartan_bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:textColor="#00897b" />
 
@@ -33,6 +34,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:gravity="center"
+        android:fontFamily="@font/spartan_bold"
         tools:text="@string/waiting_to_automatically_detect_an_sms_sent_to_6285814993643_wrong_number" />
 
     <EditText
@@ -43,6 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:hint="@string/hint"
+        android:fontFamily="@font/spartan_bold"
         android:inputType="number"
         android:textAlignment="center"
         android:maxLength="6"
@@ -55,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/et_verification_code"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/spartan_bold"
         android:text="@string/enter_6_digit_code" />
 
     <LinearLayout
@@ -63,61 +67,62 @@
         android:layout_below="@id/tv_contoh"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/spartan_bold"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
-            <TextView
-                android:id="@+id/tv_resend_sms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="10dp"
-                android:text="@string/resend_sms"
-                android:textColor="#26A69A"
-                app:drawableLeftCompat="@drawable/ic_chat_black_24dp" />
+    <TextView
+        android:id="@+id/tv_resend_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="10dp"
+        android:text="@string/resend_sms"
+        android:fontFamily="@font/spartan_bold"
+        android:textColor="#26A69A"
+        app:drawableLeftCompat="@drawable/ic_chat_black_24dp" />
 
-            <TextView
-                android:id="@+id/tv_countdown_sms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                tools:text="1:03"
-                android:layout_alignParentEnd="true" />
-        </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_countdown_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spartan_bold"
+        android:layout_alignParentRight="true"
+        tools:text="1:03"
+        android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#E2E2E2" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E2E2" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/tv_call_me"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_phone_black_green_24dp"
-                android:drawablePadding="10dp"
-                android:text="Resend SMS"
-                android:textColor="#26A69A" />
-
-            <TextView
-                android:id="@+id/tv_countdown_call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                tools:text="1:03"
-                android:layout_alignParentEnd="true" />
-        </RelativeLayout>
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+    <TextView
+        android:id="@+id/tv_call_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_phone_black_green_24dp"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/spartan_bold"
+        android:text="Resend SMS"
+        android:textColor="#26A69A" />
+    <TextView
+        android:id="@+id/tv_countdown_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:fontFamily="@font/spartan_bold"
+        tools:text="1:03"
+        android:layout_alignParentEnd="true" />
+    </RelativeLayout>
     </LinearLayout>
-
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
@@ -127,6 +132,7 @@
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
         android:text="@string/next"
+        android:fontFamily="@font/spartan_bold"
         android:textStyle="bold"
         android:backgroundTint="@color/green"/>
 

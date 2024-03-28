@@ -48,29 +48,29 @@
           android:layout_marginStart="8dp"
           android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_status_username"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:text="@string/imam_candra_kusuma"
-            android:textColor="@android:color/white"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_status_username"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:fontFamily="@font/spartan_bold"
+        android:text="@string/imam_candra_kusuma"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_status_date"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="top"
-            android:text="@string/last_seen_today_at_3_26_pm"
-            android:textColor="#eef4f4"
-            android:textSize="12sp" />
-      </LinearLayout>
-
-    </LinearLayout>
-
+    <TextView
+        android:id="@+id/tv_status_date"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:fontFamily="@font/spartan_bold"
+        android:text="@string/last_seen_today_at_3_26_pm"
+        android:textColor="#eef4f4"
+        android:textSize="12sp" />
+  </LinearLayout>
+  </LinearLayout>
   </androidx.appcompat.widget.Toolbar>
 
   <AdapterViewFlipper
@@ -87,25 +87,22 @@
       android:layout_centerHorizontal="true"
       android:layout_alignParentBottom="true"
       android:layout_marginBottom="20dp">
-
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_gravity="center_vertical"
         android:src="@drawable/ic_eye_24dp" />
-
     <TextView
         android:id="@+id/tv_seen_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/_0"
+        android:fontFamily="@font/spartan_bold"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="4dp"
         android:textSize="18sp" />
-
   </LinearLayout>
-
 
 </RelativeLayout>

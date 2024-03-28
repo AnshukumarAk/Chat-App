@@ -7,6 +7,7 @@
         android:id="@+id/action_camera"
         android:icon="@drawable/baseline_linked_camera_24"
         app:showAsAction="ifRoom"
+        android:fontFamily="@font/spartan_bold"
         android:title="@string/camera"/>
 
     <!-- Search item with a SearchView -->
@@ -15,6 +16,7 @@
         android:icon="@drawable/baseline_search_24"
         android:title="@string/sortby"
         app:iconTint="@color/white"
+        android:fontFamily="@font/spartan_bold"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom"/>
 
@@ -23,26 +25,29 @@
         android:id="@+id/overflow_menu"
         android:icon="@drawable/ic_menu"
         app:showAsAction="always"
+        android:fontFamily="@font/spartan_bold"
         android:title="">
         <menu>
 
             <item
                 android:id="@+id/action_settings"
                 android:title="@string/settings"
-
-                />
+                android:fontFamily="@font/spartan_bold"/>
 
             <item
                 android:id="@+id/action_groupchat"
-                android:title="@string/group_chat"/>
+                android:title="@string/group_chat"
+                android:fontFamily="@font/spartan_bold"/>
 
             <item
                 android:id="@+id/action_help"
-                android:title="@string/help"/>
+                android:title="@string/help"
+                android:fontFamily="@font/spartan_bold"/>
 
             <item
                 android:id="@+id/action_logout"
-                android:title="@string/logout"/>
+                android:title="@string/logout"
+                android:fontFamily="@font/spartan_bold"/>
         </menu>
     </item>
 

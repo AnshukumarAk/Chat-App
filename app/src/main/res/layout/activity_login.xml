@@ -11,18 +11,16 @@
         android:id="@+id/toolbar_input_number"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
-
-        <TextView
-            android:id="@+id/toolbar_title_input_numbers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/enter_your_phone_number"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:textColor="#00897b" />
-
+    <TextView
+        android:id="@+id/toolbar_title_input_numbers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/spartan_bold"
+        android:text="@string/enter_your_phone_number"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:textColor="#00897b" />
     </androidx.appcompat.widget.Toolbar>
-
     <TextView
         android:id="@+id/tv_notification_input_number"
         android:layout_width="wrap_content"
@@ -33,8 +31,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center"
+        android:fontFamily="@font/spartan_bold"
         android:text="@string/we_will_send" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,37 +41,27 @@
         android:layout_marginEnd="60dp"
         android:gravity="center"
         android:orientation="vertical">
-
-
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@drawable/horizontal_line"
-              >
-
-             <com.hbb20.CountryCodePicker
-                 android:id="@+id/country_code_picker"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 app:ccp_showFullName="true"
-                 app:ccp_showPhoneCode="false"/>
-
-
-          </LinearLayout>
-
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@drawable/horizontal_line">
+         <com.hbb20.CountryCodePicker
+             android:id="@+id/country_code_picker"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             app:ccp_showFullName="true"
+             app:ccp_showPhoneCode="false"/>
+      </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#96C3BE"
             android:backgroundTintMode="screen"/>
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:orientation="horizontal">
-
             <EditText
                 android:id="@+id/et_country_code"
                 android:layout_width="0dp"
@@ -83,9 +71,9 @@
                 android:drawableStart="@drawable/ic_add_black_24dp"
                 android:gravity="center"
                 android:focusable="false"
+                android:fontFamily="@font/spartan_bold"
                 android:inputType="number"
                 tools:text="91" />
-
             <EditText
                 android:id="@+id/et_phone_number"
                 android:layout_width="0dp"
@@ -93,21 +81,18 @@
                 android:layout_weight=".7"
                 android:backgroundTint="#00887A"
                 android:maxLength="10"
+                android:fontFamily="@font/spartan_bold"
                 android:hint="@string/phone_number"
                 android:inputType="number"
                 tools:ignore="TextFields" />
-
         </LinearLayout>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/spartan_bold"
             android:text="@string/carrier_sms_charges_may_apply" />
-
-
     </LinearLayout>
-
     <Button
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
@@ -115,10 +100,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="14dp"
         android:layout_marginBottom="10dp"
+        android:fontFamily="@font/spartan_bold"
         android:layout_centerHorizontal="true"
         android:text="@string/next"
         android:textStyle="bold"
         android:backgroundTint="@color/green"/>
-
 
 </RelativeLayout>

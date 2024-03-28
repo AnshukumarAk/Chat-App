@@ -22,6 +22,7 @@
             android:text="@string/are_you_sure_exit_this_application"
             android:textColor="@color/black"
             android:textSize="16sp"
+            android:fontFamily="@font/spartan_bold"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -36,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/yes"
+                android:fontFamily="@font/spartan_bold"
                 android:backgroundTint="#00ADEF"
                 android:textAllCaps="false" />
 
@@ -45,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:text="@string/no"
+                android:fontFamily="@font/spartan_bold"
                 android:backgroundTint="#AEB0B3"
                 android:textAllCaps="false" />
 

@@ -47,6 +47,7 @@
                 android:layout_weight="1"
                 android:gravity="bottom"
                 android:text="@string/my_status"
+                android:fontFamily="@font/spartan_bold"
                 android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
@@ -56,6 +57,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="top"
+                android:fontFamily="@font/spartan_bold"
                 android:text="@string/tap_to_add_status_update" />
 
         </LinearLayout>
@@ -73,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/recent_updates"
+            android:fontFamily="@font/spartan_bold"
             android:layout_gravity="center_vertical"
             android:paddingLeft="8dp"
             android:textColor="#6F6F6F"
@@ -84,6 +87,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:fontFamily="@font/spartan_bold"
         android:id="@+id/rv_recent_updates_status" />
 
     <LinearLayout
@@ -102,6 +106,7 @@
             android:paddingStart="8dp"
             android:textColor="#6F6F6F"
             android:textStyle="bold"
+            android:fontFamily="@font/spartan_bold"
             tools:ignore="RtlSymmetry" />
 
     </LinearLayout>
@@ -110,6 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:fontFamily="@font/spartan_bold"
         android:id="@+id/rv_viewed_updates_status" />
 
 

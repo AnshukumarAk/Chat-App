@@ -13,13 +13,13 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/MyToolbarTheme">
 
-
         <TextView
             android:id="@+id/toolbar_title_input_numberss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/profile_info"
+            android:fontFamily="@font/spartan_bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:textColor="#00897b" />
 
@@ -40,6 +40,7 @@
             android:layout_below="@id/toolbar_create_profile"
             android:layout_centerHorizontal="true"
             android:gravity="center"
+            android:fontFamily="@font/spartan_bold"
             android:text="@string/please_provide_your_name_and_an_optional_profile_photourl" />
 
        <de.hdodenhof.circleimageview.CircleImageView
@@ -48,7 +49,8 @@
            android:layout_height="120dp"
            android:src="@drawable/profile"
            android:layout_marginTop="14dp"
-           android:layout_gravity="center"/>
+           android:layout_gravity="center"
+           android:padding="7dp"/>
 
 
         <LinearLayout
@@ -62,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:fontFamily="@font/spartan_bold"
                 android:text="UserName :"/>
 
             <EditText
@@ -70,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:maxLength="30"
                 android:hint=""
+                android:fontFamily="@font/spartan_bold"
                 android:inputType="text" />
 
 
@@ -86,6 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:fontFamily="@font/spartan_bold"
                 android:text="About :"/>
 
             <EditText
@@ -93,6 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=""
+                android:fontFamily="@font/spartan_bold"
                 android:inputType="text" />
 
 

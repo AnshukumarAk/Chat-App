@@ -6,48 +6,35 @@
     android:layout_marginHorizontal="20dp"
     android:orientation="vertical">
 
-
-
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#859FC0"
         android:padding="6dp">
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/anshu_kumar_upadhyay"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            />
-
-
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/anshu_kumar_upadhyay"
+        android:textStyle="bold"
+        android:fontFamily="@font/spartan_bold"
+        android:textColor="@color/white"
+        android:textAlignment="center" />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_below="@+id/layout"
         android:id="@+id/layout2"
         android:layout_height="wrap_content">
-
-
-
-
     <ImageView
         android:id="@+id/ivProfilePic"
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:scaleType="fitXY"
         android:src="@drawable/profile_logo"/>
-
-
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,37 +43,27 @@
         android:layout_below="@+id/layout2"
         android:layout_marginTop="8dp"
         android:weightSum="4">
-
-
-
-        <ImageView
-            android:id="@+id/ivChat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/ic_comment_white_24dp" />
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_call_24"/>
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/ic_videoicon_24dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/baseline_info_24" />
-
-    </LinearLayout>
-
+    <ImageView
+        android:id="@+id/ivChat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_comment_white_24dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/baseline_call_24"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/ic_videoicon_24dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@drawable/baseline_info_24" />
+</LinearLayout>
 
 </RelativeLayout>
