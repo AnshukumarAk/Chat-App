@@ -99,9 +99,13 @@
         <item>@color/statusPurple</item>
         <item>@color/statusLime</item>
     </array>
+
     <color name="fui_transparent">#00000000</color>
     <color name="buttoncolor">#FF000000</color>
     <color name="tabcolor">#6274E2</color>
-
+    <color name="colormeetingInvitationstart">#4004BB</color>
+    <color name="colormeetingInvitationend">#8A1AAA</color>
+    <color name="colorTextIcons">#FFFFFF</color>
+    <color name="colorPrimaryText">#212121</color>
 
 </resources>

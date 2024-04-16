@@ -127,7 +127,10 @@ public class ChatDetailActivity extends AppCompatActivity {
 
                                          }
                                      });
+                               chatAdapter.notifyDataSetChanged();
+
                          }
+
                      });
 
                      }else {

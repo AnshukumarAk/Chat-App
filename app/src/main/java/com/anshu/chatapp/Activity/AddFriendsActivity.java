@@ -101,4 +101,5 @@ public class AddFriendsActivity extends AppCompatActivity {
         update_pic_layout.setCanceledOnTouchOutside(false);
         update_pic_layout.setCancelable(false);
     }
+
 }

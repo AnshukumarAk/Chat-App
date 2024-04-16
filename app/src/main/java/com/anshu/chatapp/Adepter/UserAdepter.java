@@ -3,13 +3,19 @@ package com.anshu.chatapp.Adepter;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +48,7 @@ public class UserAdepter extends RecyclerView.Adapter<UserAdepter.ViewHolder> {
     int hour=0;
     int minute=0;
 
+
     public UserAdepter(Context context , ArrayList<UserModel> list){
         this.context =context;
         this.list=list;
@@ -56,6 +63,7 @@ public class UserAdepter extends RecyclerView.Adapter<UserAdepter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserAdepter.ViewHolder holder, int position) {
+
 
         UserModel userModel=list.get(position);
 
@@ -101,6 +109,7 @@ public class UserAdepter extends RecyclerView.Adapter<UserAdepter.ViewHolder> {
                         // Handle onCancelled
                     }
                 });
+
 
 
         holder.ll_chat.setOnClickListener(new View.OnClickListener() {
@@ -200,6 +209,7 @@ public class UserAdepter extends RecyclerView.Adapter<UserAdepter.ViewHolder> {
         SimpleDateFormat sdf = new SimpleDateFormat("h:mm a", Locale.getDefault());
         return sdf.format(new Date(timestamp));
     }
+
 
 
 }

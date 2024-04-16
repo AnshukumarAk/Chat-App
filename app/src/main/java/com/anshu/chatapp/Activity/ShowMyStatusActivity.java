@@ -72,13 +72,14 @@ public class ShowMyStatusActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
                         // Retrieve status data from Firebase
-                        String username = snapshot.child("username").getValue(String.class);
+                        String username = snapshot.child("userName").getValue(String.class);
                         String date = snapshot.child("date").getValue(String.class);
 //                        long viewCount = snapshot.child("viewCount").getValue(Long.class);
                         String avatarUrl = snapshot.child("avatarUrl").getValue(String.class);
 
                         // Update UI with status data
                         usernameTextView.setText(username);
+                        Log.d("","UserName"+username);
                         dateTextView.setText(date);
 //                        viewCountTextView.setText(String.valueOf(viewCount));
                         Glide.with(ShowMyStatusActivity.this).load(avatarUrl).into(avatarImageView);

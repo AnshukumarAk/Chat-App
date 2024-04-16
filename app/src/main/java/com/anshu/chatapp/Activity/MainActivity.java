@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.anshu.chatapp.Adepter.TabAdapter;
 import com.anshu.chatapp.R;
+import com.anshu.chatapp.Utills.CommonClass;
 import com.anshu.chatapp.Utills.SharedPrefHelper;
 import com.anshu.chatapp.databinding.ActivityMainBinding;
 import com.google.android.material.appbar.AppBarLayout;
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     String data = "";
     String CheckAction = "";
     int position;
+    private CommonClass commonClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         fabSettings();
+
 
     }
 
@@ -231,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
         mFabTop = findViewById(R.id.fab_top);
         mToolbar = findViewById(R.id.toolbar);
         mAppBarLayout = findViewById(R.id.appbar_layout);
+        commonClass=new CommonClass();
     }
     public void showImagePickerDialog() {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);

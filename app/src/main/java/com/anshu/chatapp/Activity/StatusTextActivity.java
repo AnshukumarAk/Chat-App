@@ -1,5 +1,7 @@
 package com.anshu.chatapp.Activity;
 
+import static com.anshu.chatapp.Fragments.fragment_chats.UserName;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -12,6 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.anshu.chatapp.Models.MessageModel;
+import com.anshu.chatapp.Models.StatusModel;
 import com.anshu.chatapp.R;
 import com.anshu.chatapp.databinding.ActivityStatusTextBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -57,11 +60,11 @@ public class StatusTextActivity extends AppCompatActivity {
            public void onClick(View v) {
                String message = binding.etTextStatus.getText().toString().trim();
                if (!message.equals("")) {
-                   final MessageModel model = new MessageModel(userId, message);
+                   final StatusModel model = new StatusModel(userId, UserName,message);
                    model.setTimestamp(new Date().getTime());
                    binding.etTextStatus.setText("");
                    firebaseDatabase.getReference().child("userStatus")
-//                           .push()
+                           .push()
                            .child(userId)
                            .setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
                                @Override
